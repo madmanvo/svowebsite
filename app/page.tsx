@@ -1,13 +1,32 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PlusCircle, Instagram, Facebook, Youtube } from 'lucide-react';
+import Image from 'next/image';
+import Masonry from 'react-masonry-css';
 
 const HomePage = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchGalleryImages = async () => {
+      const response = await fetch('/api/gallery');
+      const images = await response.json();
+      setGalleryImages(images);
+    };
+    fetchGalleryImages();
+  }, []);
 
   const toggleExpand = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
+  };
+
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1
   };
 
   return (
@@ -28,7 +47,7 @@ const HomePage = () => {
       {/* Main Hero Section */}
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top pt-24 md:pt-0" style={{ backgroundImage: 'url("/images/svo1new.png")' }}>     
+        <section className="relative h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/svo1new.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h1 className="text-5xl md:text-6xl font-light mb-4 font-lato">Shawna van Omme</h1>
@@ -36,7 +55,7 @@ const HomePage = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top pt-24 md:pt-0" style={{ backgroundImage: 'url("/images/svoabout.png")' }}>
+        <section id="about" className="relative min-h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/svoabout.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">About</h2>
@@ -48,14 +67,18 @@ const HomePage = () => {
               <span className="text-white font-light">Expand Section</span>
             </button>
           </div>
-          {expandedSection === 'about' && (
-            <div className="absolute bottom-0 left-0 right-0 bg-white text-black p-8">
+        </section>
+
+        {/* Expanded About Section */}
+        {expandedSection === 'about' && (
+          <section className="bg-white text-black p-8">
+            <div className="container mx-auto">
               <p className="text-xl font-light mb-4 font-lato">
                 Shawna van Omme is a versatile artist who brings passion and expertise to every performance and lesson.
                 With her emotive voice, piano artistry, and captivating stage presence, she creates unforgettable experiences
                 in music and theatre.
               </p>
-              <p className="text-xl font-light font-lato">
+              <p className="text-xl font-light mb-4 font-lato">
                 As a dedicated music educator, Shawna inspires students to explore their musical potential and develop
                 their unique artistic voices through innovative teaching methods and genuine enthusiasm.
               </p>
@@ -87,11 +110,11 @@ const HomePage = () => {
                 Thanks so much for taking the time to look at her page!
               </p>
             </div>
-          )}
-        </section>
+          </section>
+        )}
 
         {/* Gallery Section */}
-        <section id="gallery" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top pt-24 md:pt-0" style={{ backgroundImage: 'url("/images/gallerypic.png")' }}>
+        <section id="gallery" className="relative min-h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/gallerypic.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Gallery</h2>
@@ -103,17 +126,35 @@ const HomePage = () => {
               <span className="text-white font-light">Expand Section</span>
             </button>
           </div>
-          {expandedSection === 'gallery' && (
-            <div className="absolute bottom-0 left-0 right-0 bg-white text-black p-8">
-              <p className="text-xl font-light mb-4 font-lato">
-                Gallery content goes here. You can add images, videos, or any other media to showcase Shawna&apos;s work.
-              </p>
-            </div>
-          )}
         </section>
 
+        {/* Expanded Gallery Section */}
+        {expandedSection === 'gallery' && (
+          <section className="bg-white text-black p-8">
+            <Masonry
+              breakpointCols={breakpointColumnsObj}
+              className="my-masonry-grid"
+              columnClassName="my-masonry-grid_column"
+            >
+              {galleryImages.map((image, index) => (
+                <div key={index} className="mb-4">
+                  <Image 
+                    src={`/images/gallery/${image}`} 
+                    alt={`Gallery Image ${index + 1}`} 
+                    width={500}
+                    height={500}
+                    layout="responsive"
+                    objectFit="cover"
+                    className="rounded"
+                  />
+                </div>
+              ))}
+            </Masonry>
+          </section>
+        )}
+
         {/* News Section */}
-        <section id="news" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top pt-24 md:pt-0" style={{ backgroundImage: 'url("/images/page3-1000-full.jpg")' }}>
+        <section id="news" className="relative min-h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/page3-1000-full.jpg")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">News</h2>
@@ -125,17 +166,19 @@ const HomePage = () => {
               <span className="text-white font-light">Expand Section</span>
             </button>
           </div>
-          {expandedSection === 'news' && (
-            <div className="absolute bottom-0 left-0 right-0 bg-white text-black p-8">
-              <p className="text-xl font-light mb-4 font-lato">
-                News content goes here. You can add updates, announcements, or any other relevant information.
-              </p>
-            </div>
-          )}
         </section>
 
+        {/* Expanded News Section */}
+        {expandedSection === 'news' && (
+          <section className="bg-white text-black p-8">
+            <p className="text-xl font-light mb-4 font-lato">
+              News content goes here. You can add updates, announcements, or any other relevant information.
+            </p>
+          </section>
+        )}
+
         {/* Contact Section */}
-        <section id="contact" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top pt-24 md:pt-0" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
+        <section id="contact" className="relative min-h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Contact</h2>
@@ -147,42 +190,46 @@ const HomePage = () => {
               <span className="text-white font-light">Expand Section</span>
             </button>
           </div>
-          {expandedSection === 'contact' && (
-          <div className="absolute bottom-0 left-0 right-0 bg-white text-black p-8 flex flex-col md:flex-row">
-            <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-              <h3 className="text-2xl font-light mb-4 font-lato">Professional</h3>
-              <p className="text-xl font-light mb-4 font-lato">The Talent House</p>
-              <p className="text-xl font-light mb-4 font-lato">416-960-9686</p>
-              <p className="text-xl font-light mb-4 font-lato">info@talenthouse.ca</p>
-              <p className="text-xl font-light mb-4 font-lato">204A St. George St.</p>
-              <p className="text-xl font-light mb-4 font-lato">Toronto, ON</p>
-              <p className="text-xl font-light mb-4 font-lato">M5R 2N5</p>
-            </div>
-            <div className="md:w-1/2">
-              <h3 className="text-2xl font-light mb-4 font-lato">Personal</h3>
-              <form action="mailto:contact@shawnavanomme.com" method="post" encType="text/plain">
-                <div className="mb-4">
-                  <label className="block text-xl font-light mb-2 font-lato" htmlFor="name">Name (required)</label>
-                  <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="name" name="name" required />
-                </div>
-                <div className="mb-4">
-                  <label className="block text-xl font-light mb-2 font-lato" htmlFor="email">Email (required)</label>
-                  <input className="w-full px-3 py-2 border border-gray-300 rounded" type="email" id="email" name="email" required />
-                </div>
-                <div className="mb-4">
-                  <label className="block text-xl font-light mb-2 font-lato" htmlFor="subject">Subject</label>
-                  <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="subject" name="subject" />
-                </div>
-                <div className="mb-4">
-                  <label className="block text-xl font-light mb-2 font-lato" htmlFor="message">Message</label>
-                  <textarea className="w-full px-3 py-2 border border-gray-300 rounded" id="message" name="message" rows="4"></textarea>
-                </div>
-                <button className="px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition" type="submit">Submit</button>
-              </form>
-            </div>
-          </div>
-        )}
         </section>
+
+        {/* Expanded Contact Section */}
+        {expandedSection === 'contact' && (
+          <section className="bg-white text-black p-8">
+            <div className="flex flex-col md:flex-row">
+              <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                <h3 className="text-2xl font-light mb-4 font-lato">Professional</h3>
+                <p className="text-xl font-light mb-4 font-lato">The Talent House</p>
+                <p className="text-xl font-light mb-4 font-lato">416-960-9686</p>
+                <p className="text-xl font-light mb-4 font-lato">info@talenthouse.ca</p>
+                <p className="text-xl font-light mb-4 font-lato">204A St. George St.</p>
+                <p className="text-xl font-light mb-4 font-lato">Toronto, ON</p>
+                <p className="text-xl font-light mb-4 font-lato">M5R 2N5</p>
+              </div>
+              <div className="md:w-1/2">
+                <h3 className="text-2xl font-light mb-4 font-lato">Personal</h3>
+                <form action="mailto:contact@shawnavanomme.com" method="post" encType="text/plain">
+                  <div className="mb-4">
+                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="name">Name (required)</label>
+                    <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="name" name="name" required />
+                  </div>
+                  <div className="mb-4">
+                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="email">Email (required)</label>
+                    <input className="w-full px-3 py-2 border border-gray-300 rounded" type="email" id="email" name="email" required />
+                  </div>
+                  <div className="mb-4">
+                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="subject">Subject</label>
+                    <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="subject" name="subject" />
+                  </div>
+                  <div className="mb-4">
+                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="message">Message</label>
+                    <textarea className="w-full px-3 py-2 border border-gray-300 rounded" id="message" name="message" rows={4}></textarea>
+                  </div>
+                  <button className="px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition" type="submit">Submit</button>
+                </form>
+              </div>
+            </div>
+          </section>
+        )}
       </main>
 
       {/* Footer */}
