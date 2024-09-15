@@ -8,13 +8,21 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "autoprefixer": "^10.4.20",
     "framer-motion": "^11.5.4",
     "lucide-react": "^0.441.0",
     "next": "latest",
+    "postcss": "^8.4.47",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "tailwindcss": "^3.4.11"
   },
   "devDependencies": {
+    "@types/node": "22.5.5",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
     "eslint": "latest",
     "eslint-config-next": "latest"
   }

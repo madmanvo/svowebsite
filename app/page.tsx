@@ -1,13 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 
 const HomePage = () => {
-  const [activeSection, setActiveSection] = useState<'singer' | 'actor' | 'pianist' | 'teacher'>('singer');
-
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
@@ -22,20 +19,40 @@ const HomePage = () => {
         </div>
       </header>
 
-      {/* Main Hero Section */}
+      {/* Main Hero Section with Image on Left and Name on Right */}
       <main className="pt-24">
         <section className="relative">
-          <div className="w-full h-96 relative">
-            <Image
-              src="/images/svo1.png"
-              alt="Shawna van Omme"
-              layout="fill"
-              objectFit="cover"
-              className="object-center"
-              priority
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-              <h1 className="text-white text-5xl md:text-7xl font-light">Shawna van Omme</h1>
+          <div className="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            {/* Left: Image with Geometric Border */}
+            <div className="relative md:w-1/2">
+              <div className="relative w-full h-96">
+                <div className="absolute inset-0 bg-pink-600 clip-geometric z-0"></div> {/* Geometric shape behind the image */}
+                <Image
+                  src="/images/svo1new.png"
+                  alt="Shawna van Omme"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  className="z-10 relative rounded-lg shadow-lg"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Right: Name and Titles */}
+            <div className="md:w-1/2 p-8">
+              <h1 className="text-pink-600 text-5xl md:text-6xl font-light mb-4">Shawna van Omme</h1>
+              <p className="text-xl md:text-2xl font-light">Singer • Actor • Pianist • Music Teacher</p>
+              <div className="mt-8 flex space-x-4">
+                <a href="#" className="text-pink-600 hover:text-pink-800 transition duration-300">
+                  <Instagram size={24} />
+                </a>
+                <a href="#" className="text-pink-600 hover:text-pink-800 transition duration-300">
+                  <Facebook size={24} />
+                </a>
+                <a href="#" className="text-pink-600 hover:text-pink-800 transition duration-300">
+                  <Youtube size={24} />
+                </a>
+              </div>
             </div>
           </div>
         </section>
