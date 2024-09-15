@@ -22,7 +22,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-lato text-gray-800 overflow-hidden">
+    <div className="min-h-screen overflow-hidden">
       {/* Diagonal background */}
       <div className="fixed inset-0 bg-pink-100 transform -skew-y-6 origin-top-right z-0"></div>
 

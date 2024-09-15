@@ -1,6 +1,21 @@
 {
+  "name": "svo-website",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
   "dependencies": {
     "framer-motion": "^11.5.4",
-    "lucide-react": "^0.441.0"
+    "lucide-react": "^0.441.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "eslint-config-next": "latest"
   }
 }
