@@ -59,6 +59,33 @@ const HomePage = () => {
                 As a dedicated music educator, Shawna inspires students to explore their musical potential and develop
                 their unique artistic voices through innovative teaching methods and genuine enthusiasm.
               </p>
+              <p className="text-xl font-light mb-4 font-lato">
+                Shawna was born in Charlottetown, Prince Edward Island and was fortunate to grow up in a place that had a very strong arts community. She began taking dance lessons at the age of 3 and it was not long after that she was taking voice and piano lessons and performing in community theatre.
+              </p>
+              <p className="text-xl font-light mb-4 font-lato">
+                At the age of 13 she performed in her first professional show, Gabriel and Evangeline.
+              </p>
+              <p className="text-xl font-light mb-4 font-lato">
+                Her first Equity gig was at the age of 17 in Don Messer’s Violin where she traveled to Toronto to perform in a music video for one of the songs in the show. This was an incredible thrill for a 17 year old from a small town to be living and working in Toronto- even if it was only for a short period of time before returning to the Island.
+              </p>
+              <p className="text-xl font-light mb-4 font-lato">
+                Growing up in PEI it was a treat to be exposed to the exceptional caliber of talent that passed through the Charlottetown Festival over the years. This became a major influence in her creative drive to become an artist. So it was an absolute thrill to be accepted into the Festival’s Young Company at the age of 18. At the same time she had the opportunity to understudy the part of Prissy Andrews on the Main Stage in Anne of Green Gables.
+              </p>
+              <p className="text-xl font-light mb-4 font-lato">
+                After that summer she was off to Ontario and Sheridan College for the Music Theatre Performance Program she had heard so much about. After her first year at Sheridan she became a full member in the Charlottetown Festival Company performing for 11 consecutive seasons in such shows as Anne of Green Gables, The Happy Prince, British Invasion, Buddy: The Buddy Holly Story, and Canada Rocks to name a few.
+              </p>
+              <p className="text-xl font-light mb-4 font-lato">
+                As well as performing in Musical Theatre on Main Stages across Canada, she has had the opportunity to perform in farces such as Don’t Dress For Dinner (Suzanne), and There Goes The Bride (Polly Perkins). Added to her list of accomplishments are musical directing credits for Jack and the Beanstalk (Gayety), A Christmas Carol and A Gift to Last (Upper Canada Playhouse).
+              </p>
+              <p className="text-xl font-light mb-4 font-lato">
+                A career highlight for Shawna was when she played the part of Lesley in Billy Elliot, the Musical at the Canon Theatre (Mirvish). As part of a predominantly American cast, Shawna had the honour of being one of the few Canadians.
+              </p>
+              <p className="text-xl font-light mb-4 font-lato">
+                She has most recently performed at Stage West Calgary in their production of Two Hit Wonders. She currently lives in Toronto with her husband where she teaches voice and piano lessons when she is not performing.
+              </p>
+              <p className="text-xl font-light mb-4 font-lato">
+                Thanks so much for taking the time to look at her page!
+              </p>
             </div>
           )}
         </section>
