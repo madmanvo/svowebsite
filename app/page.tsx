@@ -148,12 +148,40 @@ const HomePage = () => {
             </button>
           </div>
           {expandedSection === 'contact' && (
-            <div className="absolute bottom-0 left-0 right-0 bg-white text-black p-8">
-              <p className="text-xl font-light mb-4 font-lato">
-                Contact content goes here. You can add contact information, a form, or any other relevant details.
-              </p>
+          <div className="absolute bottom-0 left-0 right-0 bg-white text-black p-8 flex flex-col md:flex-row">
+            <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+              <h3 className="text-2xl font-light mb-4 font-lato">Professional</h3>
+              <p className="text-xl font-light mb-4 font-lato">The Talent House</p>
+              <p className="text-xl font-light mb-4 font-lato">416-960-9686</p>
+              <p className="text-xl font-light mb-4 font-lato">info@talenthouse.ca</p>
+              <p className="text-xl font-light mb-4 font-lato">204A St. George St.</p>
+              <p className="text-xl font-light mb-4 font-lato">Toronto, ON</p>
+              <p className="text-xl font-light mb-4 font-lato">M5R 2N5</p>
             </div>
-          )}
+            <div className="md:w-1/2">
+              <h3 className="text-2xl font-light mb-4 font-lato">Personal</h3>
+              <form action="mailto:contact@shawnavanomme.com" method="post" encType="text/plain">
+                <div className="mb-4">
+                  <label className="block text-xl font-light mb-2 font-lato" htmlFor="name">Name (required)</label>
+                  <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="name" name="name" required />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-xl font-light mb-2 font-lato" htmlFor="email">Email (required)</label>
+                  <input className="w-full px-3 py-2 border border-gray-300 rounded" type="email" id="email" name="email" required />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-xl font-light mb-2 font-lato" htmlFor="subject">Subject</label>
+                  <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="subject" name="subject" />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-xl font-light mb-2 font-lato" htmlFor="message">Message</label>
+                  <textarea className="w-full px-3 py-2 border border-gray-300 rounded" id="message" name="message" rows="4"></textarea>
+                </div>
+                <button className="px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition" type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        )}
         </section>
       </main>
 
