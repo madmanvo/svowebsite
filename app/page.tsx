@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-//import Image from 'next/image';
 import { PlusCircle, Instagram, Facebook, Youtube } from 'lucide-react';
 
 const HomePage = () => {
