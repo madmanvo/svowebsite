@@ -28,7 +28,7 @@ const HomePage = () => {
       {/* Main Hero Section */}
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/svo1new.png")' }}>
+        <section className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top pt-24 md:pt-0" style={{ backgroundImage: 'url("/images/svo1new.png")' }}>     
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h1 className="text-5xl md:text-6xl font-light mb-4 font-lato">Shawna van Omme</h1>
@@ -36,7 +36,7 @@ const HomePage = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/svoabout.png")' }}>
+        <section id="about" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top pt-24 md:pt-0" style={{ backgroundImage: 'url("/images/svoabout.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">About</h2>
@@ -64,7 +64,7 @@ const HomePage = () => {
         </section>
 
         {/* Gallery Section */}
-        <section id="gallery" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/gallerypic.png")' }}>
+        <section id="gallery" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top pt-24 md:pt-0" style={{ backgroundImage: 'url("/images/gallerypic.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Gallery</h2>
@@ -86,7 +86,7 @@ const HomePage = () => {
         </section>
 
         {/* News Section */}
-        <section id="news" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/page3-1000-full.jpg")' }}>
+        <section id="news" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top pt-24 md:pt-0" style={{ backgroundImage: 'url("/images/page3-1000-full.jpg")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">News</h2>
@@ -108,7 +108,7 @@ const HomePage = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
+        <section id="contact" className="relative h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top pt-24 md:pt-0" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Contact</h2>

@@ -897,6 +897,9 @@ select {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.pt-16 {
+  padding-top: 4rem;
+}
 .pt-24 {
   padding-top: 6rem;
 }
@@ -992,6 +995,10 @@ body {
 }
 
 @media (min-width: 768px) {
+
+  .md\:pt-0 {
+    padding-top: 0px;
+  }
 
   .md\:text-5xl {
     font-size: 3rem;
