@@ -764,23 +764,8 @@ select {
 .fixed {
   position: fixed;
 }
-.absolute {
-  position: absolute;
-}
-.relative {
-  position: relative;
-}
-.inset-0 {
-  inset: 0px;
-}
 .top-0 {
   top: 0px;
-}
-.z-0 {
-  z-index: 0;
-}
-.z-10 {
-  z-index: 10;
 }
 .z-50 {
   z-index: 50;
@@ -794,6 +779,9 @@ select {
 }
 .mb-8 {
   margin-bottom: 2rem;
+}
+.mr-auto {
+  margin-right: auto;
 }
 .mt-4 {
   margin-top: 1rem;
@@ -810,8 +798,11 @@ select {
 .h-64 {
   height: 16rem;
 }
-.h-96 {
-  height: 24rem;
+.h-full {
+  height: 100%;
+}
+.h-screen {
+  height: 100vh;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -824,6 +815,9 @@ select {
 }
 .flex-col {
   flex-direction: column;
+}
+.items-start {
+  align-items: flex-start;
 }
 .items-center {
   align-items: center;
@@ -864,16 +858,33 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
-.bg-pink-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(213 63 140 / var(--tw-bg-opacity));
-}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .bg-opacity-90 {
   --tw-bg-opacity: 0.9;
+}
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+.from-pink-500 {
+  --tw-gradient-from: #ec4899 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(236 72 153 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.via-pink-400 {
+  --tw-gradient-to: rgb(244 114 182 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #f472b6 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.to-pink-600 {
+  --tw-gradient-to: #D53F8C var(--tw-gradient-to-position);
+}
+.bg-cover {
+  background-size: cover;
+}
+.bg-center {
+  background-position: center;
 }
 .p-4 {
   padding: 1rem;
@@ -954,11 +965,6 @@ select {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.shadow-lg {
-  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -974,9 +980,6 @@ select {
 .duration-300 {
   transition-duration: 300ms;
 }
-.clip-geometric {
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
 
 :root {
   --background: #ffffff;
@@ -989,6 +992,11 @@ select {
     --foreground: #ededed;
   }
 }
+
+/* globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+/* Add any other global styles here */
 
 body {
   color: var(--foreground);
