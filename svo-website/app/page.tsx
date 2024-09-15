@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Facebook, Youtube, Music, Mic, Film, GraduationCap } from 'lucide-react';
 
-type SectionKey = 'pianist' | 'singer' | 'actor' | 'teacher';
+type SectionKey = 'singer' | 'actor' | 'pianist' | 'teacher';
 
 interface Section {
   color: string;
@@ -12,12 +12,12 @@ interface Section {
 }
 
 export default function HomePage() {
-  const [activeSection, setActiveSection] = useState<SectionKey>('pianist');
+  const [activeSection, setActiveSection] = useState<SectionKey>('singer');
 
   const sections: Record<SectionKey, Section> = {
-    pianist: { color: 'bg-pink-200', icon: <Music className="w-12 h-12" /> },
     singer: { color: 'bg-purple-200', icon: <Mic className="w-12 h-12" /> },
     actor: { color: 'bg-blue-200', icon: <Film className="w-12 h-12" /> },
+    pianist: { color: 'bg-pink-200', icon: <Music className="w-12 h-12" /> },
     teacher: { color: 'bg-green-200', icon: <GraduationCap className="w-12 h-12" /> },
   };
 
@@ -64,7 +64,7 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Pianist • Singer • Actor • Music Teacher
+              Singer • Actor • Pianist • Music Teacher
             </motion.p>
             <motion.div 
               className="flex space-x-4"
