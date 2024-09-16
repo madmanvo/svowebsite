@@ -1,22 +1,80 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { PlusCircle, Instagram, Facebook, Youtube } from 'lucide-react';
 import Image from 'next/image';
 import Masonry from 'react-masonry-css';
 
 const HomePage = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
-  const [galleryImages, setGalleryImages] = useState<string[]>([]);
-
-  useEffect(() => {
-    const fetchGalleryImages = async () => {
-      const response = await fetch('/api/gallery');
-      const images = await response.json();
-      setGalleryImages(images);
-    };
-    fetchGalleryImages();
-  }, []);
+  
+  // Static list of gallery images
+  const galleryImages = [
+    "Gallery/homepicweb.jpg",
+    "Gallery/page2-1000-full.jpg",
+    "Gallery/page2-1001-full.jpg",
+    "Gallery/page2-1002-full.jpg",
+    "Gallery/page2-1003-full.jpg",
+    "Gallery/page2-1004-full.jpg",
+    "Gallery/page2-1005-full.jpg",
+    "Gallery/page2-1006-full.jpg",
+    "Gallery/page2-1007-full.jpg",
+    "Gallery/page2-1008-full.jpg",
+    "Gallery/page2-1009-full.jpg",
+    "Gallery/page2-1010-full.jpg",
+    "Gallery/page2-1011-full.jpg",
+    "Gallery/page2-1012-full.jpg",
+    "Gallery/page2-1013-full.jpg",
+    "Gallery/page2-1014-full.jpg",
+    "Gallery/page2-1015-full.jpg",
+    "Gallery/page3-1000-full.jpg",
+    "Gallery/page3-1001-full.jpg",
+    "Gallery/page3-1002-full.jpg",
+    "Gallery/page3-1003-full.jpg",
+    "Gallery/page3-1005-full.jpg",
+    "Gallery/page3-1006-full.jpg",
+    "Gallery/page3-1007-full.jpg",
+    "Gallery/page3-1008-full.jpg",
+    "Gallery/page3-1009-full.jpg",
+    "Gallery/page3-1010-full.jpg",
+    "Gallery/page3-1011-full.jpg",
+    "Gallery/page3-1012-full.jpg",
+    "Gallery/page3-1013-full.jpg",
+    "Gallery/page3-1014-full.jpg",
+    "Gallery/page3-1015-full.jpg",
+    "Gallery/page3-1016-full.jpg",
+    "Gallery/page3-1017-full.jpg",
+    "Gallery/page3-1018-full.jpg",
+    "Gallery/page3-1019-full.jpg",
+    "Gallery/page3-1020-full.jpg",
+    "Gallery/page3-1021-full.jpg",
+    "Gallery/page3-1022-full.jpg",
+    "Gallery/page3-1023-full.jpg",
+    "Gallery/page3-1024-full.jpg",
+    "Gallery/page3-1025-full.jpg",
+    "Gallery/page3-1026-full.jpg",
+    "Gallery/page3-1027-full.jpg",
+    "Gallery/page3-1028-full.jpg",
+    "Gallery/page3-1029-full.jpg",
+    "Gallery/page3-1030-full.jpg",
+    "Gallery/page3-1031-full.jpg",
+    "Gallery/page3-1032-full.jpg",
+    "Gallery/page3-1033-full.jpg",
+    "Gallery/page3-1034-full.jpg",
+    "Gallery/page3-1035-full.jpg",
+    "Gallery/page3-1036-full.jpg",
+    "Gallery/page3-1037-full.jpg",
+    "Gallery/page3-1038-full.jpg",
+    "Gallery/page3-1039-full.jpg",
+    "Gallery/page3-1040-full.jpg",
+    "Gallery/page3-1041-full.jpg",
+    "Gallery/page3-1042-full.jpg",
+    "Gallery/page3-1043-full.jpg",
+    "Gallery/page3-1044-full.jpg",
+    "Gallery/page3-1045-full.jpg",
+    "Gallery/page3-1046-full.jpg",
+    "Gallery/page3-1047-full.jpg"
+  ];
 
   const toggleExpand = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
@@ -44,7 +102,7 @@ const HomePage = () => {
         </div>
       </header>
 
-      {/* Main Hero Section */}
+      {/* Main Content */}
       <main className="pt-24">
         {/* Hero Section */}
         <section className="relative h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/svo1new.png")' }}>
@@ -109,7 +167,7 @@ const HomePage = () => {
               <p className="text-xl font-light mb-4 font-lato">
                 Thanks so much for taking the time to look at her page!
               </p>
-            </div>
+              </div>
           </section>
         )}
 
@@ -224,7 +282,7 @@ const HomePage = () => {
                     <label className="block text-xl font-light mb-2 font-lato" htmlFor="message">Message</label>
                     <textarea className="w-full px-3 py-2 border border-gray-300 rounded" id="message" name="message" rows={4}></textarea>
                   </div>
-                  <button className="px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition" type="submit">Submit</button>
+                  <button className="px-4 py-2 bg-pink-600 text-white rounded hover: bg-pink-700 transition" type="submit">Submit</button>
                 </form>
               </div>
             </div>
