@@ -4,7 +4,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Add this to allow empty /public/images/gallery directory
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {

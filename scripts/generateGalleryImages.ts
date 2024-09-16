@@ -14,7 +14,10 @@ let galleryImages: string[] = [];
 
 try {
   const imageFilenames = fs.readdirSync(imagesDirectory);
-  galleryImages = imageFilenames.map(filename => `/images/gallery/${filename}`);
+  galleryImages = imageFilenames
+    .filter(filename => /\.(jpg|jpeg|png|gif)$/i.test(filename))
+    .map(filename => `/images/gallery/${filename}`);
+  console.log(`Found ${galleryImages.length} images in the gallery`);
 } catch (error) {
   console.error('Error reading gallery directory:', error);
 }
