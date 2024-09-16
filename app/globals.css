@@ -29,6 +29,11 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .flex-column-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 }
 .my-masonry-grid {
   display: flex;

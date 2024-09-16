@@ -112,18 +112,18 @@ const HomePage = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/svoabout.png")' }}>
+        <section id="about" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/svoabout.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 h-full flex flex-col justify-end items-center text-center text-white px-4 pb-16">
-          <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">About</h2>
-          <button
-            className="mt-4 flex flex-col items-center space-y-2"
-            onClick={() => toggleExpand('about')}
-          >
-            <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
-            <span className="text-white font-light">Expand Section</span>
-          </button>
-        </div>
+          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+            <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">About</h2>
+            <button
+              className="mt-4 flex flex-col items-center space-y-2"
+              onClick={() => toggleExpand('about')}
+            >
+              <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
+              <span className="text-white font-light">Expand Section</span>
+            </button>
+          </div>
         </section>
 
         {/* Expanded About Section */}
@@ -173,16 +173,16 @@ const HomePage = () => {
         {/* Gallery Section */}
         <section id="gallery" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/gallerypic.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 h-full flex flex-col justify-end items-center text-center text-white px-4 pb-16">
-          <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Gallery</h2>
-          <button
-            className="mt-4 flex flex-col items-center space-y-2"
-            onClick={() => toggleExpand('gallery')}
-          >
-            <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
-            <span className="text-white font-light">Expand Section</span>
-          </button>
-        </div>
+          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+            <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Gallery</h2>
+            <button
+              className="mt-4 flex flex-col items-center space-y-2"
+              onClick={() => toggleExpand('gallery')}
+            >
+              <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
+              <span className="text-white font-light">Expand Section</span>
+            </button>
+          </div>
         </section>
 
         {/* Expanded Gallery Section */}
@@ -212,18 +212,18 @@ const HomePage = () => {
 
         {/* News Section */}
         <section id="news" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/page3-1000-full.jpg")' }}>
-          <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 h-full flex flex-col justify-end items-center text-center text-white px-4 pb-16">
-            <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">News</h2>
-            <button
-              className="mt-4 flex flex-col items-center space-y-2"
-              onClick={() => toggleExpand('news')}
-            >
-              <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
-              <span className="text-white font-light">Expand Section</span>
-            </button>
-          </div>
-        </section>
+        <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+        <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+          <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">News</h2>
+          <button
+            className="mt-4 flex flex-col items-center space-y-2"
+            onClick={() => toggleExpand('news')}
+          >
+            <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
+            <span className="text-white font-light">Expand Section</span>
+          </button>
+        </div>
+      </section>
 
         {/* Expanded News Section */}
         {expandedSection === 'news' && (
@@ -236,18 +236,19 @@ const HomePage = () => {
 
         {/* Contact Section */}
         <section id="contact" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
-          <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 h-full flex flex-col justify-end items-center text-center text-white px-4 pb-16">
-            <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Contact</h2>
-            <button
-              className="mt-4 flex flex-col items-center space-y-2"
-              onClick={() => toggleExpand('contact')}
-            >
-              <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
-              <span className="text-white font-light">Expand Section</span>
-            </button>
-          </div>
-        </section>
+        <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+        <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+          <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Contact</h2>
+          <button
+            className="mt-4 flex flex-col items-center space-y-2"
+            onClick={() => toggleExpand('contact')}
+          >
+            <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
+            <span className="text-white font-light">Expand Section</span>
+          </button>
+        </div>
+      </section>
+
 
         {/* Expanded Contact Section */}
         {expandedSection === 'contact' && (
