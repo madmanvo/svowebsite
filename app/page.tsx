@@ -47,6 +47,21 @@ const HomePage = () => {
           </div>
         </section>
 
+        {/* About Section */}
+        <section id="about" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/svoabout.png")' }}>
+          <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+            <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">About</h2>
+            <button
+              className="mt-4 flex flex-col items-center space-y-2"
+              onClick={() => toggleExpand('about')}
+            >
+              <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
+              <span className="text-white font-light">Expand Section</span>
+            </button>
+          </div>
+        </section>
+
         {/* Expanded About Section */}
         {expandedSection === 'about' && (
           <section className="bg-white text-black p-8">
@@ -91,20 +106,6 @@ const HomePage = () => {
           </section>
         )}
 
-        {/* Expanded About Section */}
-        {expandedSection === 'about' && (
-          <section className="bg-white text-black p-8">
-            <div className="container mx-auto">
-              <p className="text-xl font-light mb-4 font-lato">
-                Shawna van Omme is a versatile artist who brings passion and expertise to every performance and lesson.
-                With her emotive voice, piano artistry, and captivating stage presence, she creates unforgettable experiences
-                in music and theatre.
-              </p>
-              {/* ... (rest of the about content) ... */}
-            </div>
-          </section>
-        )}
-
         {/* Gallery Section */}
         <section id="gallery" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/gallerypic.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
@@ -122,127 +123,128 @@ const HomePage = () => {
 
         {/* Expanded Gallery Section */}
         {expandedSection === 'gallery' && (
-          <section className="bg-white text-black p-8">
-            <Masonry
-              breakpointCols={breakpointColumnsObj}
-              className="my-masonry-grid"
-              columnClassName="my-masonry-grid_column"
+        <section className="bg-white text-black p-8">
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
+            {galleryImages.map((image, index) => (
+              <div key={index} className="mb-4">
+                <Image 
+                  src={image} 
+                  alt={`Gallery Image ${index + 1}`} 
+                  width={500}
+                  height={500}
+                  layout="responsive"
+                  objectFit="cover"
+                  className="rounded"
+                  unoptimized
+                />
+              </div>
+            ))}
+          </Masonry>
+        </section>
+      )}
+
+        {/* News Section */}
+        <section id="news" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/page3-1000-full.jpg")' }}>
+          <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+            <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">News</h2>
+            <button
+              className="mt-4 flex flex-col items-center space-y-2"
+              onClick={() => toggleExpand('news')}
             >
-              {galleryImages.map((image, index) => (
-                <div key={index} className="mb-4">
-                  <Image 
-                    src={image} 
-                    alt={`Gallery Image ${index + 1}`} 
-                    width={500}
-                    height={500}
-                    layout="responsive"
-                    objectFit="cover"
-                    className="rounded"
-                  />
-                </div>
-              ))}
-            </Masonry>
+              <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
+              <span className="text-white font-light">Expand Section</span>
+            </button>
+          </div>
+        </section>
+
+        {/* Expanded News Section */}
+        {expandedSection === 'news' && (
+          <section className="bg-white text-black p-8">
+            <p className="text-xl font-light mb-4 font-lato">
+              News content goes here. You can add updates, announcements, or any other relevant information.
+            </p>
           </section>
         )}
 
-                {/* News Section */}
-                <section id="news" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/page3-1004-full.jpg")' }}>
-                  <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-                  <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
-                    <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">News</h2>
-                    <button
-                      className="mt-4 flex flex-col items-center space-y-2"
-                      onClick={() => toggleExpand('news')}
-                    >
-                      <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
-                      <span className="text-white font-light">Expand Section</span>
-                    </button>
+        {/* Contact Section */}
+        <section id="contact" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
+          <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+            <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Contact</h2>
+            <button
+              className="mt-4 flex flex-col items-center space-y-2"
+              onClick={() => toggleExpand('contact')}
+            >
+              <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
+              <span className="text-white font-light">Expand Section</span>
+            </button>
+          </div>
+        </section>
+
+        {/* Expanded Contact Section */}
+        {expandedSection === 'contact' && (
+          <section className="bg-white text-black p-8">
+            <div className="flex flex-col md:flex-row">
+              <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                <h3 className="text-2xl font-light mb-4 font-lato">Professional</h3>
+                <p className="text-xl font-light mb-4 font-lato">The Talent House</p>
+                <p className="text-xl font-light mb-4 font-lato">416-960-9686</p>
+                <p className="text-xl font-light mb-4 font-lato">info@talenthouse.ca</p>
+                <p className="text-xl font-light mb-4 font-lato">204A St. George St.</p>
+                <p className="text-xl font-light mb-4 font-lato">Toronto, ON</p>
+                <p className="text-xl font-light mb-4 font-lato">M5R 2N5</p>
+              </div>
+              <div className="md:w-1/2">
+                <h3 className="text-2xl font-light mb-4 font-lato">Personal</h3>
+                <form action="mailto:contact@shawnavanomme.com" method="post" encType="text/plain">
+                  <div className="mb-4">
+                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="name">Name (required)</label>
+                    <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="name" name="name" required />
                   </div>
-                </section>
-
-                {/* Expanded News Section */}
-                {expandedSection === 'news' && (
-                  <section className="bg-white text-black p-8">
-                    <p className="text-xl font-light mb-4 font-lato">
-                      News content goes here. You can add updates, announcements, or any other relevant information.
-                    </p>
-                  </section>
-                )}
-
-                {/* Contact Section */}
-                <section id="contact" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
-                  <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-                  <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
-                    <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Contact</h2>
-                    <button
-                      className="mt-4 flex flex-col items-center space-y-2"
-                      onClick={() => toggleExpand('contact')}
-                    >
-                      <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
-                      <span className="text-white font-light">Expand Section</span>
-                    </button>
+                  <div className="mb-4">
+                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="email">Email (required)</label>
+                    <input className="w-full px-3 py-2 border border-gray-300 rounded" type="email" id="email" name="email" required />
                   </div>
-                </section>
-
-                {/* Expanded Contact Section */}
-                {expandedSection === 'contact' && (
-                  <section className="bg-white text-black p-8">
-                    <div className="flex flex-col md:flex-row">
-                      <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                        <h3 className="text-2xl font-light mb-4 font-lato">Professional</h3>
-                        <p className="text-xl font-light mb-4 font-lato">The Talent House</p>
-                        <p className="text-xl font-light mb-4 font-lato">416-960-9686</p>
-                        <p className="text-xl font-light mb-4 font-lato">info@talenthouse.ca</p>
-                        <p className="text-xl font-light mb-4 font-lato">204A St. George St.</p>
-                        <p className="text-xl font-light mb-4 font-lato">Toronto, ON</p>
-                        <p className="text-xl font-light mb-4 font-lato">M5R 2N5</p>
-                      </div>
-                      <div className="md:w-1/2">
-                        <h3 className="text-2xl font-light mb-4 font-lato">Personal</h3>
-                        <form action="mailto:contact@shawnavanomme.com" method="post" encType="text/plain">
-                          <div className="mb-4">
-                            <label className="block text-xl font-light mb-2 font-lato" htmlFor="name">Name (required)</label>
-                            <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="name" name="name" required />
-                          </div>
-                          <div className="mb-4">
-                            <label className="block text-xl font-light mb-2 font-lato" htmlFor="email">Email (required)</label>
-                            <input className="w-full px-3 py-2 border border-gray-300 rounded" type="email" id="email" name="email" required />
-                          </div>
-                          <div className="mb-4">
-                            <label className="block text-xl font-light mb-2 font-lato" htmlFor="subject">Subject</label>
-                            <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="subject" name="subject" />
-                          </div>
-                          <div className="mb-4">
-                            <label className="block text-xl font-light mb-2 font-lato" htmlFor="message">Message</label>
-                            <textarea className="w-full px-3 py-2 border border-gray-300 rounded" id="message" name="message" rows={4}></textarea>
-                          </div>
-                          <button className="px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition" type="submit">Submit</button>
-                        </form>
-                      </div>
-                    </div>
-                  </section>
-                )}
-              </main>
-
-              {/* Footer */}
-              <footer className="bg-gray-800 text-white py-8">
-                <div className="container mx-auto px-6 text-center">
-                  <p className="font-light">&copy; 2023 Shawna van Omme. All rights reserved.</p>
-                  <div className="flex justify-center space-x-4 mt-4">
-                    <a href="#" className="text-white hover:text-pink-600 transition">
-                      <Instagram size={24} />
-                    </a>
-                    <a href="#" className="text-white hover:text-pink-600 transition">
-                      <Facebook size={24} />
-                    </a>
-                    <a href="#" className="text-white hover:text-pink-600 transition">
-                      <Youtube size={24} />
-                    </a>
+                  <div className="mb-4">
+                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="subject">Subject</label>
+                    <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="subject" name="subject" />
                   </div>
-                </div>
-              </footer>
+                  <div className="mb-4">
+                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="message">Message</label>
+                    <textarea className="w-full px-3 py-2 border border-gray-300 rounded" id="message" name="message" rows={4}></textarea>
+                  </div>
+                  <button className="px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition" type="submit">Submit</button>
+                </form>
+              </div>
             </div>
-          );
-        };
+          </section>
+        )}
+      </main>
 
-        export default HomePage;
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-8">
+        <div className="container mx-auto px-6 text-center">
+          <p className="font-light">&copy; 2023 Shawna van Omme. All rights reserved.</p>
+          <div className="flex justify-center space-x-4 mt-4">
+            <a href="#" className="text-white hover:text-pink-600 transition">
+              <Instagram size={24} />
+            </a>
+            <a href="#" className="text-white hover:text-pink-600 transition">
+              <Facebook size={24} />
+            </a>
+            <a href="#" className="text-white hover:text-pink-600 transition">
+              <Youtube size={24} />
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default HomePage;

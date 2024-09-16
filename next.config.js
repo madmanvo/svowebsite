@@ -13,6 +13,12 @@ const nextConfig = {
     }
     return config;
   },
+  // Add this to ensure images are copied to the output directory
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    },
+  },
 }
 
 module.exports = nextConfig
