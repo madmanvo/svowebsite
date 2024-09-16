@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-      domains: ['your-domain.com'], // Replace with your actual domain
-      unoptimized: true, // This is important for static exports
-    },
-    output: 'export', // If you're using static export
-  }
-  
-  module.exports = nextConfig
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+}
+
+module.exports = nextConfig

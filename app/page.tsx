@@ -1,79 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import { PlusCircle, Instagram, Facebook, Youtube } from 'lucide-react';
 import Image from 'next/image';
+import { PlusCircle, Instagram, Facebook, Youtube } from 'lucide-react';
 import Masonry from 'react-masonry-css';
+import { getGalleryImages } from '../lib/galleryImages';
+
+const galleryImages = getGalleryImages();
 
 const HomePage = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
-  
-  const galleryImages = [
-    "homepicweb.jpg",
-    "page2-1000-full.jpg",
-    "page2-1001-full.jpg",
-    "page2-1002-full.jpg",
-    "page2-1003-full.jpg",
-    "page2-1004-full.jpg",
-    "page2-1005-full.jpg",
-    "page2-1006-full.jpg",
-    "page2-1007-full.jpg",
-    "page2-1008-full.jpg",
-    "page2-1009-full.jpg",
-    "page2-1010-full.jpg",
-    "page2-1011-full.jpg",
-    "page2-1012-full.jpg",
-    "page2-1013-full.jpg",
-    "page2-1014-full.jpg",
-    "page2-1015-full.jpg",
-    "page3-1000-full.jpg",
-    "page3-1001-full.jpg",
-    "page3-1002-full.jpg",
-    "page3-1003-full.jpg",
-    "page3-1005-full.jpg",
-    "page3-1006-full.jpg",
-    "page3-1007-full.jpg",
-    "page3-1008-full.jpg",
-    "page3-1009-full.jpg",
-    "page3-1010-full.jpg",
-    "page3-1011-full.jpg",
-    "page3-1012-full.jpg",
-    "page3-1013-full.jpg",
-    "page3-1014-full.jpg",
-    "page3-1015-full.jpg",
-    "page3-1016-full.jpg",
-    "page3-1017-full.jpg",
-    "page3-1018-full.jpg",
-    "page3-1019-full.jpg",
-    "page3-1020-full.jpg",
-    "page3-1021-full.jpg",
-    "page3-1022-full.jpg",
-    "page3-1023-full.jpg",
-    "page3-1024-full.jpg",
-    "page3-1025-full.jpg",
-    "page3-1026-full.jpg",
-    "page3-1027-full.jpg",
-    "page3-1028-full.jpg",
-    "page3-1029-full.jpg",
-    "page3-1030-full.jpg",
-    "page3-1031-full.jpg",
-    "page3-1032-full.jpg",
-    "page3-1033-full.jpg",
-    "page3-1034-full.jpg",
-    "page3-1035-full.jpg",
-    "page3-1036-full.jpg",
-    "page3-1037-full.jpg",
-    "page3-1038-full.jpg",
-    "page3-1039-full.jpg",
-    "page3-1040-full.jpg",
-    "page3-1041-full.jpg",
-    "page3-1042-full.jpg",
-    "page3-1043-full.jpg",
-    "page3-1044-full.jpg",
-    "page3-1045-full.jpg",
-    "page3-1046-full.jpg",
-    "page3-1047-full.jpg"
-  ];
 
   const toggleExpand = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
@@ -108,21 +44,6 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h1 className="text-5xl md:text-6xl font-light mb-4 font-lato">Shawna van Omme</h1>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section id="about" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/svoabout.png")' }}>
-          <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
-            <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">About</h2>
-            <button
-              className="mt-4 flex flex-col items-center space-y-2"
-              onClick={() => toggleExpand('about')}
-            >
-              <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
-              <span className="text-white font-light">Expand Section</span>
-            </button>
           </div>
         </section>
 
@@ -172,140 +93,142 @@ const HomePage = () => {
 
         {/* Gallery Section */}
         <section id="gallery" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/gallerypic.png")' }}>
-        <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-        <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
-          <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Gallery</h2>
-          <button
-            className="mt-4 flex flex-col items-center space-y-2"
-            onClick={() => toggleExpand('gallery')}
-          >
-            <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
-            <span className="text-white font-light">Expand Section</span>
-          </button>
-        </div>
-      </section>
-
-      {/* Expanded Gallery Section */}
-      {expandedSection === 'gallery' && (
-        <section className="bg-white text-black p-8">
-          <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column"
-          >
-            {galleryImages.map((image, index) => (
-              <div key={index} className="mb-4 relative" style={{ width: '100%', paddingBottom: '100%' }}>
-                <Image 
-                  src={`/images/gallery/${image}`} 
-                  alt={`Gallery Image ${index + 1}`} 
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded"
-                />
-              </div>
-            ))}
-          </Masonry>
-        </section>
-        )}
-
-        {/* News Section */}
-        <section id="news" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/page3-1004-full.jpg")' }}>
-          <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
-            <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">News</h2>
-            <button
-              className="mt-4 flex flex-col items-center space-y-2"
-              onClick={() => toggleExpand('news')}
-            >
-              <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
-              <span className="text-white font-light">Expand Section</span>
-            </button>
-          </div>
-        </section>
-
-        {/* Expanded News Section */}
-        {expandedSection === 'news' && (
-          <section className="bg-white text-black p-8">
-            <p className="text-xl font-light mb-4 font-lato">
-              News content goes here. You can add updates, announcements, or any other relevant information.
-            </p>
-          </section>
-        )}
-
-        {/* Contact Section */}
-        <section id="contact" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
-          <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
-            <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Contact</h2>
-            <button
-              className="mt-4 flex flex-col items-center space-y-2"
-              onClick={() => toggleExpand('contact')}
-            >
-              <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
-              <span className="text-white font-light">Expand Section</span>
-            </button>
-          </div>
-        </section>
-
-        {/* Expanded Contact Section */}
-        {expandedSection === 'contact' && (
-          <section className="bg-white text-black p-8">
-            <div className="flex flex-col md:flex-row">
-              <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                <h3 className="text-2xl font-light mb-4 font-lato">Professional</h3>
-                <p className="text-xl font-light mb-4 font-lato">The Talent House</p>
-                <p className="text-xl font-light mb-4 font-lato">416-960-9686</p>
-                <p className="text-xl font-light mb-4 font-lato">info@talenthouse.ca</p>
-                <p className="text-xl font-light mb-4 font-lato">204A St. George St.</p>
-                <p className="text-xl font-light mb-4 font-lato">Toronto, ON</p>
-                <p className="text-xl font-light mb-4 font-lato">M5R 2N5</p>
-              </div>
-              <div className="md:w-1/2">
-                <h3 className="text-2xl font-light mb-4 font-lato">Personal</h3>
-                <form action="mailto:contact@shawnavanomme.com" method="post" encType="text/plain">
-                  <div className="mb-4">
-                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="name">Name (required)</label>
-                    <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="name" name="name" required />
+                  <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+                  <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+                    <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Gallery</h2>
+                    <button
+                      className="mt-4 flex flex-col items-center space-y-2"
+                      onClick={() => toggleExpand('gallery')}
+                    >
+                      <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
+                      <span className="text-white font-light">Expand Section</span>
+                    </button>
                   </div>
-                  <div className="mb-4">
-                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="email">Email (required)</label>
-                    <input className="w-full px-3 py-2 border border-gray-300 rounded" type="email" id="email" name="email" required />
+                </section>
+
+                  {/* Expanded Gallery Section */}
+                  {expandedSection === 'gallery' && (
+                    <section className="bg-white text-black p-8">
+                      <Masonry
+                        breakpointCols={breakpointColumnsObj}
+                        className="my-masonry-grid"
+                        columnClassName="my-masonry-grid_column"
+                      >
+                        {galleryImages.map((image, index) => (
+                          <div key={index} className="mb-4">
+                            <Image 
+                              src={image} 
+                              alt={`Gallery Image ${index + 1}`} 
+                              width={500}
+                              height={500}
+                              layout="responsive"
+                              objectFit="cover"
+                              className="rounded"
+                            />
+                          </div>
+                        ))}
+                      </Masonry>
+                    </section>
+                  )}
+
+                {/* News Section */}
+                <section id="news" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/page3-1004-full.jpg")' }}>
+                  <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+                  <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+                    <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">News</h2>
+                    <button
+                      className="mt-4 flex flex-col items-center space-y-2"
+                      onClick={() => toggleExpand('news')}
+                    >
+                      <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
+                      <span className="text-white font-light">Expand Section</span>
+                    </button>
                   </div>
-                  <div className="mb-4">
-                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="subject">Subject</label>
-                    <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="subject" name="subject" />
+                </section>
+
+                {/* Expanded News Section */}
+                {expandedSection === 'news' && (
+                  <section className="bg-white text-black p-8">
+                    <p className="text-xl font-light mb-4 font-lato">
+                      News content goes here. You can add updates, announcements, or any other relevant information.
+                    </p>
+                  </section>
+                )}
+
+                {/* Contact Section */}
+                <section id="contact" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
+                  <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+                  <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+                    <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Contact</h2>
+                    <button
+                      className="mt-4 flex flex-col items-center space-y-2"
+                      onClick={() => toggleExpand('contact')}
+                    >
+                      <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
+                      <span className="text-white font-light">Expand Section</span>
+                    </button>
                   </div>
-                  <div className="mb-4">
-                    <label className="block text-xl font-light mb-2 font-lato" htmlFor="message">Message</label>
-                    <textarea className="w-full px-3 py-2 border border-gray-300 rounded" id="message" name="message" rows={4}></textarea>
+                </section>
+
+                {/* Expanded Contact Section */}
+                {expandedSection === 'contact' && (
+                  <section className="bg-white text-black p-8">
+                    <div className="flex flex-col md:flex-row">
+                      <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                        <h3 className="text-2xl font-light mb-4 font-lato">Professional</h3>
+                        <p className="text-xl font-light mb-4 font-lato">The Talent House</p>
+                        <p className="text-xl font-light mb-4 font-lato">416-960-9686</p>
+                        <p className="text-xl font-light mb-4 font-lato">info@talenthouse.ca</p>
+                        <p className="text-xl font-light mb-4 font-lato">204A St. George St.</p>
+                        <p className="text-xl font-light mb-4 font-lato">Toronto, ON</p>
+                        <p className="text-xl font-light mb-4 font-lato">M5R 2N5</p>
+                      </div>
+                      <div className="md:w-1/2">
+                        <h3 className="text-2xl font-light mb-4 font-lato">Personal</h3>
+                        <form action="mailto:contact@shawnavanomme.com" method="post" encType="text/plain">
+                          <div className="mb-4">
+                            <label className="block text-xl font-light mb-2 font-lato" htmlFor="name">Name (required)</label>
+                            <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="name" name="name" required />
+                          </div>
+                          <div className="mb-4">
+                            <label className="block text-xl font-light mb-2 font-lato" htmlFor="email">Email (required)</label>
+                            <input className="w-full px-3 py-2 border border-gray-300 rounded" type="email" id="email" name="email" required />
+                          </div>
+                          <div className="mb-4">
+                            <label className="block text-xl font-light mb-2 font-lato" htmlFor="subject">Subject</label>
+                            <input className="w-full px-3 py-2 border border-gray-300 rounded" type="text" id="subject" name="subject" />
+                          </div>
+                          <div className="mb-4">
+                            <label className="block text-xl font-light mb-2 font-lato" htmlFor="message">Message</label>
+                            <textarea className="w-full px-3 py-2 border border-gray-300 rounded" id="message" name="message" rows={4}></textarea>
+                          </div>
+                          <button className="px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition" type="submit">Submit</button>
+                        </form>
+                      </div>
+                    </div>
+                  </section>
+                )}
+              </main>
+
+              {/* Footer */}
+              <footer className="bg-gray-800 text-white py-8">
+                <div className="container mx-auto px-6 text-center">
+                  <p className="font-light">&copy; 2023 Shawna van Omme. All rights reserved.</p>
+                  <div className="flex justify-center space-x-4 mt-4">
+                    <a href="#" className="text-white hover:text-pink-600 transition">
+                      <Instagram size={24} />
+                    </a>
+                    <a href="#" className="text-white hover:text-pink-600 transition">
+                      <Facebook size={24} />
+                    </a>
+                    <a href="#" className="text-white hover:text-pink-600 transition">
+                      <Youtube size={24} />
+                    </a>
                   </div>
-                  <button className="px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition" type="submit">Submit</button>
-                </form>
-              </div>
+                </div>
+              </footer>
             </div>
-          </section>
-        )}
-      </main>
+          );
+        };
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
-        <div className="container mx-auto px-6 text-center">
-          <p className="font-light">&copy; 2023 Shawna van Omme. All rights reserved.</p>
-          <div className="flex justify-center space-x-4 mt-4">
-            <a href="#" className="text-white hover:text-pink-600 transition">
-              <Instagram size={24} />
-            </a>
-            <a href="#" className="text-white hover:text-pink-600 transition">
-              <Facebook size={24} />
-            </a>
-            <a href="#" className="text-white hover:text-pink-600 transition">
-              <Youtube size={24} />
-            </a>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-};
-
-export default HomePage;
+        export default HomePage;
