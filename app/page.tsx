@@ -8,72 +8,71 @@ import Masonry from 'react-masonry-css';
 const HomePage = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   
-  // Static list of gallery images
   const galleryImages = [
-    "Gallery/homepicweb.jpg",
-    "Gallery/page2-1000-full.jpg",
-    "Gallery/page2-1001-full.jpg",
-    "Gallery/page2-1002-full.jpg",
-    "Gallery/page2-1003-full.jpg",
-    "Gallery/page2-1004-full.jpg",
-    "Gallery/page2-1005-full.jpg",
-    "Gallery/page2-1006-full.jpg",
-    "Gallery/page2-1007-full.jpg",
-    "Gallery/page2-1008-full.jpg",
-    "Gallery/page2-1009-full.jpg",
-    "Gallery/page2-1010-full.jpg",
-    "Gallery/page2-1011-full.jpg",
-    "Gallery/page2-1012-full.jpg",
-    "Gallery/page2-1013-full.jpg",
-    "Gallery/page2-1014-full.jpg",
-    "Gallery/page2-1015-full.jpg",
-    "Gallery/page3-1000-full.jpg",
-    "Gallery/page3-1001-full.jpg",
-    "Gallery/page3-1002-full.jpg",
-    "Gallery/page3-1003-full.jpg",
-    "Gallery/page3-1005-full.jpg",
-    "Gallery/page3-1006-full.jpg",
-    "Gallery/page3-1007-full.jpg",
-    "Gallery/page3-1008-full.jpg",
-    "Gallery/page3-1009-full.jpg",
-    "Gallery/page3-1010-full.jpg",
-    "Gallery/page3-1011-full.jpg",
-    "Gallery/page3-1012-full.jpg",
-    "Gallery/page3-1013-full.jpg",
-    "Gallery/page3-1014-full.jpg",
-    "Gallery/page3-1015-full.jpg",
-    "Gallery/page3-1016-full.jpg",
-    "Gallery/page3-1017-full.jpg",
-    "Gallery/page3-1018-full.jpg",
-    "Gallery/page3-1019-full.jpg",
-    "Gallery/page3-1020-full.jpg",
-    "Gallery/page3-1021-full.jpg",
-    "Gallery/page3-1022-full.jpg",
-    "Gallery/page3-1023-full.jpg",
-    "Gallery/page3-1024-full.jpg",
-    "Gallery/page3-1025-full.jpg",
-    "Gallery/page3-1026-full.jpg",
-    "Gallery/page3-1027-full.jpg",
-    "Gallery/page3-1028-full.jpg",
-    "Gallery/page3-1029-full.jpg",
-    "Gallery/page3-1030-full.jpg",
-    "Gallery/page3-1031-full.jpg",
-    "Gallery/page3-1032-full.jpg",
-    "Gallery/page3-1033-full.jpg",
-    "Gallery/page3-1034-full.jpg",
-    "Gallery/page3-1035-full.jpg",
-    "Gallery/page3-1036-full.jpg",
-    "Gallery/page3-1037-full.jpg",
-    "Gallery/page3-1038-full.jpg",
-    "Gallery/page3-1039-full.jpg",
-    "Gallery/page3-1040-full.jpg",
-    "Gallery/page3-1041-full.jpg",
-    "Gallery/page3-1042-full.jpg",
-    "Gallery/page3-1043-full.jpg",
-    "Gallery/page3-1044-full.jpg",
-    "Gallery/page3-1045-full.jpg",
-    "Gallery/page3-1046-full.jpg",
-    "Gallery/page3-1047-full.jpg"
+    "homepicweb.jpg",
+    "page2-1000-full.jpg",
+    "page2-1001-full.jpg",
+    "page2-1002-full.jpg",
+    "page2-1003-full.jpg",
+    "page2-1004-full.jpg",
+    "page2-1005-full.jpg",
+    "page2-1006-full.jpg",
+    "page2-1007-full.jpg",
+    "page2-1008-full.jpg",
+    "page2-1009-full.jpg",
+    "page2-1010-full.jpg",
+    "page2-1011-full.jpg",
+    "page2-1012-full.jpg",
+    "page2-1013-full.jpg",
+    "page2-1014-full.jpg",
+    "page2-1015-full.jpg",
+    "page3-1000-full.jpg",
+    "page3-1001-full.jpg",
+    "page3-1002-full.jpg",
+    "page3-1003-full.jpg",
+    "page3-1005-full.jpg",
+    "page3-1006-full.jpg",
+    "page3-1007-full.jpg",
+    "page3-1008-full.jpg",
+    "page3-1009-full.jpg",
+    "page3-1010-full.jpg",
+    "page3-1011-full.jpg",
+    "page3-1012-full.jpg",
+    "page3-1013-full.jpg",
+    "page3-1014-full.jpg",
+    "page3-1015-full.jpg",
+    "page3-1016-full.jpg",
+    "page3-1017-full.jpg",
+    "page3-1018-full.jpg",
+    "page3-1019-full.jpg",
+    "page3-1020-full.jpg",
+    "page3-1021-full.jpg",
+    "page3-1022-full.jpg",
+    "page3-1023-full.jpg",
+    "page3-1024-full.jpg",
+    "page3-1025-full.jpg",
+    "page3-1026-full.jpg",
+    "page3-1027-full.jpg",
+    "page3-1028-full.jpg",
+    "page3-1029-full.jpg",
+    "page3-1030-full.jpg",
+    "page3-1031-full.jpg",
+    "page3-1032-full.jpg",
+    "page3-1033-full.jpg",
+    "page3-1034-full.jpg",
+    "page3-1035-full.jpg",
+    "page3-1036-full.jpg",
+    "page3-1037-full.jpg",
+    "page3-1038-full.jpg",
+    "page3-1039-full.jpg",
+    "page3-1040-full.jpg",
+    "page3-1041-full.jpg",
+    "page3-1042-full.jpg",
+    "page3-1043-full.jpg",
+    "page3-1044-full.jpg",
+    "page3-1045-full.jpg",
+    "page3-1046-full.jpg",
+    "page3-1047-full.jpg"
   ];
 
   const toggleExpand = (section: string) => {
@@ -113,12 +112,12 @@ const HomePage = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="relative min-h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/svoabout.png")' }}>
+        <section id="about" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/svoabout.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
+          <div className="relative z-20 h-full flex flex-col justify-end items-center text-center text-white px-4 pb-16">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">About</h2>
             <button
-              className="mt-12 flex flex-col items-center space-y-2"
+              className="mt-4 flex flex-col items-center space-y-2"
               onClick={() => toggleExpand('about')}
             >
               <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
@@ -147,16 +146,16 @@ const HomePage = () => {
                 At the age of 13 she performed in her first professional show, Gabriel and Evangeline.
               </p>
               <p className="text-xl font-light mb-4 font-lato">
-                Her first Equity gig was at the age of 17 in Don Messer’s Violin where she traveled to Toronto to perform in a music video for one of the songs in the show. This was an incredible thrill for a 17 year old from a small town to be living and working in Toronto- even if it was only for a short period of time before returning to the Island.
+                Her first Equity gig was at the age of 17 in Don Messer&apos;s Violin where she traveled to Toronto to perform in a music video for one of the songs in the show. This was an incredible thrill for a 17 year old from a small town to be living and working in Toronto- even if it was only for a short period of time before returning to the Island.
               </p>
               <p className="text-xl font-light mb-4 font-lato">
-                Growing up in PEI it was a treat to be exposed to the exceptional caliber of talent that passed through the Charlottetown Festival over the years. This became a major influence in her creative drive to become an artist. So it was an absolute thrill to be accepted into the Festival’s Young Company at the age of 18. At the same time she had the opportunity to understudy the part of Prissy Andrews on the Main Stage in Anne of Green Gables.
+                Growing up in PEI it was a treat to be exposed to the exceptional caliber of talent that passed through the Charlottetown Festival over the years. This became a major influence in her creative drive to become an artist. So it was an absolute thrill to be accepted into the Festival&apos;s Young Company at the age of 18. At the same time she had the opportunity to understudy the part of Prissy Andrews on the Main Stage in Anne of Green Gables.
               </p>
               <p className="text-xl font-light mb-4 font-lato">
                 After that summer she was off to Ontario and Sheridan College for the Music Theatre Performance Program she had heard so much about. After her first year at Sheridan she became a full member in the Charlottetown Festival Company performing for 11 consecutive seasons in such shows as Anne of Green Gables, The Happy Prince, British Invasion, Buddy: The Buddy Holly Story, and Canada Rocks to name a few.
               </p>
               <p className="text-xl font-light mb-4 font-lato">
-                As well as performing in Musical Theatre on Main Stages across Canada, she has had the opportunity to perform in farces such as Don’t Dress For Dinner (Suzanne), and There Goes The Bride (Polly Perkins). Added to her list of accomplishments are musical directing credits for Jack and the Beanstalk (Gayety), A Christmas Carol and A Gift to Last (Upper Canada Playhouse).
+                As well as performing in Musical Theatre on Main Stages across Canada, she has had the opportunity to perform in farces such as Don&apos;t Dress For Dinner (Suzanne), and There Goes The Bride (Polly Perkins). Added to her list of accomplishments are musical directing credits for Jack and the Beanstalk (Gayety), A Christmas Carol and A Gift to Last (Upper Canada Playhouse).
               </p>
               <p className="text-xl font-light mb-4 font-lato">
                 A career highlight for Shawna was when she played the part of Lesley in Billy Elliot, the Musical at the Canon Theatre (Mirvish). As part of a predominantly American cast, Shawna had the honour of being one of the few Canadians.
@@ -167,17 +166,17 @@ const HomePage = () => {
               <p className="text-xl font-light mb-4 font-lato">
                 Thanks so much for taking the time to look at her page!
               </p>
-              </div>
+            </div>
           </section>
         )}
 
         {/* Gallery Section */}
-        <section id="gallery" className="relative min-h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/gallerypic.png")' }}>
+        <section id="gallery" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/gallerypic.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
+          <div className="relative z-20 h-full flex flex-col justify-end items-center text-center text-white px-4 pb-16">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Gallery</h2>
             <button
-              className="mt-12 flex flex-col items-center space-y-2"
+              className="mt-4 flex flex-col items-center space-y-2"
               onClick={() => toggleExpand('gallery')}
             >
               <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
@@ -212,12 +211,12 @@ const HomePage = () => {
         )}
 
         {/* News Section */}
-        <section id="news" className="relative min-h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/page3-1000-full.jpg")' }}>
+        <section id="news" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/page3-1000-full.jpg")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
+          <div className="relative z-20 h-full flex flex-col justify-end items-center text-center text-white px-4 pb-16">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">News</h2>
             <button
-              className="mt-12 flex flex-col items-center space-y-2"
+              className="mt-4 flex flex-col items-center space-y-2"
               onClick={() => toggleExpand('news')}
             >
               <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
@@ -236,12 +235,12 @@ const HomePage = () => {
         )}
 
         {/* Contact Section */}
-        <section id="contact" className="relative min-h-[calc(100vh-4rem)] bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
+        <section id="contact" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
+          <div className="relative z-20 h-full flex flex-col justify-end items-center text-center text-white px-4 pb-16">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Contact</h2>
             <button
-              className="mt-12 flex flex-col items-center space-y-2"
+              className="mt-4 flex flex-col items-center space-y-2"
               onClick={() => toggleExpand('contact')}
             >
               <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
@@ -282,7 +281,7 @@ const HomePage = () => {
                     <label className="block text-xl font-light mb-2 font-lato" htmlFor="message">Message</label>
                     <textarea className="w-full px-3 py-2 border border-gray-300 rounded" id="message" name="message" rows={4}></textarea>
                   </div>
-                  <button className="px-4 py-2 bg-pink-600 text-white rounded hover: bg-pink-700 transition" type="submit">Submit</button>
+                  <button className="px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition" type="submit">Submit</button>
                 </form>
               </div>
             </div>
