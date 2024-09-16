@@ -211,7 +211,7 @@ const HomePage = () => {
         )}
 
         {/* News Section */}
-        <section id="news" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/page3-1000-full.jpg")' }}>
+        <section id="news" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/page3-1004-full.jpg")' }}>
         <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
         <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
           <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">News</h2>
