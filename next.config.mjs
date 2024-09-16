@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      domains: ['shawnavanomme.com'], // Add your domain if images are hosted externally
+      domains: ['shawnavanomme.com'], // Replace with your actual domain
+      unoptimized: true, // This is important for static exports
     },
-    // ... other configurations
-  };
+    output: 'export', // If you're using static export
+  }
   
-  export default nextConfig;
-
+  module.exports = nextConfig

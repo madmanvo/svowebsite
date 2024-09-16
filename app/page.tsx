@@ -172,42 +172,40 @@ const HomePage = () => {
 
         {/* Gallery Section */}
         <section id="gallery" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/gallerypic.png")' }}>
-          <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
-            <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Gallery</h2>
-            <button
-              className="mt-4 flex flex-col items-center space-y-2"
-              onClick={() => toggleExpand('gallery')}
-            >
-              <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
-              <span className="text-white font-light">Expand Section</span>
-            </button>
-          </div>
-        </section>
+        <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+        <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+          <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Gallery</h2>
+          <button
+            className="mt-4 flex flex-col items-center space-y-2"
+            onClick={() => toggleExpand('gallery')}
+          >
+            <PlusCircle className="text-white hover:text-pink-600 transition duration-300" size={48} />
+            <span className="text-white font-light">Expand Section</span>
+          </button>
+        </div>
+      </section>
 
-        {/* Expanded Gallery Section */}
-        {expandedSection === 'gallery' && (
-          <section className="bg-white text-black p-8">
-            <Masonry
-              breakpointCols={breakpointColumnsObj}
-              className="my-masonry-grid"
-              columnClassName="my-masonry-grid_column"
-            >
-              {galleryImages.map((image, index) => (
-                <div key={index} className="mb-4">
-                  <Image 
-                    src={`/images/gallery/${image}`} 
-                    alt={`Gallery Image ${index + 1}`} 
-                    width={500}
-                    height={500}
-                    layout="responsive"
-                    objectFit="cover"
-                    className="rounded"
-                  />
-                </div>
-              ))}
-            </Masonry>
-          </section>
+      {/* Expanded Gallery Section */}
+      {expandedSection === 'gallery' && (
+        <section className="bg-white text-black p-8">
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
+            {galleryImages.map((image, index) => (
+              <div key={index} className="mb-4 relative" style={{ width: '100%', paddingBottom: '100%' }}>
+                <Image 
+                  src={`/images/gallery/${image}`} 
+                  alt={`Gallery Image ${index + 1}`} 
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded"
+                />
+              </div>
+            ))}
+          </Masonry>
+        </section>
         )}
 
         {/* News Section */}
