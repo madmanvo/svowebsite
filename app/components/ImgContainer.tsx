@@ -16,7 +16,7 @@ const ImgContainer: React.FC<ImgContainerProps> = ({ photo }) => {
         src={photo.src}
         alt={photo.alt || defaultAlt} // Use default alt text if not provided
         fill={true}
-        sizes="(min-width: 1280px) 278px, (min-width: 1040px) calc(12.73vw + 118px), (min-width: 800px) 33.18vw, (min-width: 540px) 50vw, calc(100vw - 16px)"
+        sizes="(min-width: 2860px) calc(9.29vw - 15px), (min-width: 2600px) 10vw, (min-width: 2340px) 11.25vw, (min-width: 2080px) 12.5vw, (min-width: 1820px) 14.17vw, (min-width: 1560px) 16.67vw, (min-width: 1300px) 20vw, (min-width: 1040px) 25vw, (min-width: 800px) 33.18vw, (min-width: 540px) 50vw, calc(100vw - 16px)"
         className="object-cover group-hover:opacity-75"
       />
     </div>
