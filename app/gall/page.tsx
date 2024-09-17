@@ -1,7 +1,18 @@
 
 import ImgContainer from "../components/ImgContainer";
 
+    const generateImageProps = (src: string) => {
+        const defaultAlt = "Default alt text"; // Define default alt text
+        const width = 800; // Default width
+        const height = 600; // Default height
     
+        return {
+        src,
+        alt: defaultAlt,
+        width,
+        height,
+        };
+    };
     const localImages = [
         "/images/homepicweb.jpg",
         "/images/page2-1000-full.jpg",
@@ -67,7 +78,7 @@ import ImgContainer from "../components/ImgContainer";
         "/images/page3-1045-full.jpg",
         "/images/page3-1046-full.jpg",
         "/images/page3-1047-full.jpg"
-      ];
+      ].map(generateImageProps);
 
       export default function Gallery() {
         if (localImages.length === 0) {
@@ -75,9 +86,9 @@ import ImgContainer from "../components/ImgContainer";
         }
       
         return (
-          <section className="px-2 my-3 grid gap-2 grid-cols-gallery">
-            {localImages.map((src, index) => (
-              <ImgContainer key={index} photo={{ src }} />
+          <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px]">
+            {localImages.map((photo, index) => (
+              <ImgContainer key={index} photo={photo} />
             ))}
           </section>
         );
