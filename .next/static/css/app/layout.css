@@ -842,6 +842,11 @@ select {
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .justify-self-center {
   justify-self: center;
 }
@@ -959,6 +964,10 @@ select {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -1002,6 +1011,12 @@ select {
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+@media (max-width: 640px) {
+  .section-bg {
+    background-size: cover;
+    background-position: top;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

@@ -14,18 +14,31 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="w-full py-4 bg-white bg-opacity-90 shadow-md z-50 fixed top-0">
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <h1 className="text-3xl font-light text-black font-lato mr-auto">SHAWNA VAN OMME</h1>
-          <nav className="flex space-x-4">
-            <a href="#about" className="text-gray-600 hover:text-black transition font-lato">About</a>
-            <a href="#gallery" className="text-gray-600 hover:text-black transition font-lato">Gallery</a>
-            <a href="#news" className="text-gray-600 hover:text-black transition font-lato">News</a>
-            <a href="#contact" className="text-gray-600 hover:text-black transition font-lato">Contact</a>
-          </nav>
+    {/* Header */}
+    <header className="w-full py-4 bg-white bg-opacity-90 shadow-md z-50 fixed top-0">
+      <div className="container mx-auto px-6 flex justify-between items-center">
+        <div className="mr-auto">
+          <h1 className="text-3xl font-light text-black font-lato">SHAWNA VAN OMME</h1>
+          <div className="flex space-x-2 text-sm text-gray-600 font-lato">
+            <span>Singer</span>
+            <span>&middot;</span> {/* Dot separator */}
+            <span>Actor</span>
+            <span>&middot;</span> {/* Dot separator */}
+            <span>Dancer</span>
+            <span>&middot;</span> {/* Dot separator */}
+            <span>Pianist</span>
+            <span>&middot;</span> {/* Dot separator */}
+            <span>Teacher</span>
+          </div>
         </div>
-      </header>
+        <nav className="flex space-x-4">
+          <a href="#about" className="text-gray-600 hover:text-black transition font-lato">About</a>
+          <a href="#gallery" className="text-gray-600 hover:text-black transition font-lato">Gallery</a>
+          <a href="#news" className="text-gray-600 hover:text-black transition font-lato">News</a>
+          <a href="#contact" className="text-gray-600 hover:text-black transition font-lato">Contact</a>
+        </nav>
+      </div>
+    </header>
 
       {/* Main Content */}
       <main className="pt-24">
