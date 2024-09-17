@@ -105,10 +105,12 @@ const HomePage: React.FC = () => {
           style={{ backgroundImage: 'url("/images/svoabout.png")' }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+          <div className="relative z-20 flex flex-col items-center text-center text-white px-4" style={{ marginTop: 'calc(50vh - 8rem)' }}>
             <h2 className="text-6xl md:text-7xl font-light mb-4 font-sans">
               About
             </h2>
+          </div>
+          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
             <button
               className="mt-4 flex flex-col items-center space-y-2"
               onClick={() => toggleExpand("about")}
@@ -127,7 +129,6 @@ const HomePage: React.FC = () => {
             </button>
           </div>
         </section>
-
         {/* Expanded About Section */}
         {expandedSection === "about" && (
           <section className="bg-white text-black p-8">
@@ -216,7 +217,7 @@ const HomePage: React.FC = () => {
           style={{ backgroundImage: 'url("/images/gallerypic.png")' }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+          <div className="relative z-20 flex flex-col items-center text-center text-white px-4" style={{ marginTop: 'calc(50vh - 8rem)' }}>
             <h2 className="text-6xl md:text-7xl font-light mb-4 font-sans">
               Gallery
             </h2>
@@ -253,7 +254,7 @@ const HomePage: React.FC = () => {
           style={{ backgroundImage: 'url("/images/page3-1003-full.jpg")' }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+          <div className="relative z-20 flex flex-col items-center text-center text-white px-4" style={{ marginTop: 'calc(50vh - 8rem)' }}>
             <h2 className="text-6xl md:text-7xl font-light mb-4 font-sans">
               News
             </h2>
@@ -287,7 +288,7 @@ const HomePage: React.FC = () => {
           style={{ backgroundImage: 'url("/images/svo1new.png")' }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
+          <div className="relative z-20 flex flex-col items-center text-center text-white px-4" style={{ marginTop: 'calc(50vh - 8rem)' }}>
             <h2 className="text-6xl md:text-7xl font-light mb-4 font-sans">
               Contact
             </h2>
