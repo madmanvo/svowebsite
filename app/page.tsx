@@ -30,7 +30,7 @@ const HomePage: React.FC = () => {
       {/* Main Content */}
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="relative h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/svo1new.png")' }}>
+        <section className="relative h-screen bg-gray-800 bg-fixed bg-cover bg-top" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 h-full flex flex-col justify-center items-center text-center text-white px-4">
             <h1 className="text-5xl md:text-6xl font-light mb-4 font-lato">Shawna van Omme</h1>
@@ -143,7 +143,7 @@ const HomePage: React.FC = () => {
         )}
 
         {/* Contact Section */}
-        <section id="contact" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/main_hshot.png")' }}>
+        <section id="contact" className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col" style={{ backgroundImage: 'url("/images/svo1new.png")' }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
             <h2 className="text-4xl md:text-5xl font-light mb-4 font-lato">Contact</h2>
