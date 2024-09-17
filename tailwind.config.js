@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      gridTemplateColumns: {
+        'gallery': 'repeat(auto-fit, minmax(250px, 1fr))',
+      },
       colors: {
         pink: {
           100: '#FFF5F7',
@@ -39,4 +46,4 @@ module.exports = {
       });
     },
   ],
-};
+}

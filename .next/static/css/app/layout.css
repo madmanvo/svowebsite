@@ -63,8 +63,7 @@ html,
   line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -moz-tab-size: 4; /* 3 */
-  -o-tab-size: 4;
-     tab-size: 4; /* 3 */
+  tab-size: 4; /* 3 */
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
   font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
@@ -98,8 +97,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
 abbr:where([title]) {
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 /*
@@ -363,11 +361,6 @@ textarea {
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-input::-moz-placeholder, textarea::-moz-placeholder {
-  opacity: 1; /* 1 */
-  color: #9ca3af; /* 2 */
-}
-
 input::placeholder,
 textarea::placeholder {
   opacity: 1; /* 1 */
@@ -424,9 +417,7 @@ video {
 }
 
 [type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   background-color: #fff;
   border-color: #6b7280;
   border-width: 1px;
@@ -451,11 +442,6 @@ video {
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   border-color: #2563eb;
-}
-
-input::-moz-placeholder, textarea::-moz-placeholder {
-  color: #6b7280;
-  opacity: 1;
 }
 
 input::placeholder,textarea::placeholder {
@@ -487,8 +473,7 @@ select {
   background-repeat: no-repeat;
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
-  -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 [multiple],[size]:where(select:not([size="1"])) {
@@ -497,23 +482,17 @@ select {
   background-repeat: unset;
   background-size: initial;
   padding-right: 0.75rem;
-  -webkit-print-color-adjust: unset;
-          print-color-adjust: unset;
+  print-color-adjust: unset;
 }
 
 [type='checkbox'],[type='radio'] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   padding: 0;
-  -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
+  print-color-adjust: exact;
   display: inline-block;
   vertical-align: middle;
   background-origin: border-box;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   flex-shrink: 0;
   height: 1rem;
   width: 1rem;
@@ -559,9 +538,7 @@ select {
 @media (forced-colors: active)  {
 
   [type='checkbox']:checked {
-    -webkit-appearance: auto;
-       -moz-appearance: auto;
-            appearance: auto;
+    appearance: auto;
   }
 }
 
@@ -572,9 +549,7 @@ select {
 @media (forced-colors: active)  {
 
   [type='radio']:checked {
-    -webkit-appearance: auto;
-       -moz-appearance: auto;
-            appearance: auto;
+    appearance: auto;
   }
 }
 
@@ -595,9 +570,7 @@ select {
 @media (forced-colors: active)  {
 
   [type='checkbox']:indeterminate {
-    -webkit-appearance: auto;
-       -moz-appearance: auto;
-            appearance: auto;
+    appearance: auto;
   }
 }
 
@@ -785,9 +758,16 @@ select {
 .z-50 {
   z-index: 50;
 }
+.m-4 {
+  margin: 1rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .mb-2 {
   margin-bottom: 0.5rem;
@@ -813,6 +793,12 @@ select {
 .flex {
   display: flex;
 }
+.grid {
+  display: grid;
+}
+.h-64 {
+  height: 16rem;
+}
 .h-full {
   height: 100%;
 }
@@ -828,6 +814,9 @@ select {
 .grow {
   flex-grow: 1;
 }
+.grid-cols-gallery {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
 .flex-col {
   flex-direction: column;
 }
@@ -840,6 +829,9 @@ select {
 .justify-between {
   justify-content: space-between;
 }
+.gap-2 {
+  gap: 0.5rem;
+}
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -850,8 +842,14 @@ select {
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
+.overflow-hidden {
+  overflow: hidden;
+}
 .rounded {
   border-radius: 0.25rem;
+}
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 .border {
   border-width: 1px;
@@ -863,6 +861,10 @@ select {
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 .bg-gray-50 {
   --tw-bg-opacity: 1;
@@ -895,8 +897,15 @@ select {
 .bg-top {
   background-position: top;
 }
+.object-cover {
+  object-fit: cover;
+}
 .p-8 {
   padding: 2rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -951,6 +960,9 @@ select {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.font-bold {
+  font-weight: 700;
+}
 .font-light {
   font-weight: 300;
 }
@@ -980,9 +992,7 @@ select {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1032,6 +1042,9 @@ body {
 .hover\:text-pink-600:hover {
   --tw-text-opacity: 1;
   color: rgb(213 63 140 / var(--tw-text-opacity));
+}
+.group:hover .group-hover\:opacity-75 {
+  opacity: 0.75;
 }
 @media (min-width: 768px) {
 
