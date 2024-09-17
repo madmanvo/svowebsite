@@ -22,7 +22,7 @@ const HomePage: React.FC = () => {
       <header
         className={`w-full py-4 bg-white bg-opacity-90 shadow-md z-50 fixed top-0 transition-transform duration-300 ${
           menuOpen ? "translate-y-0" : "-translate-y-full"
-        } md:translate-y-0`}
+        }`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="mr-auto">
@@ -105,7 +105,10 @@ const HomePage: React.FC = () => {
           style={{ backgroundImage: 'url("/images/svoabout.png")' }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 flex flex-col items-center text-center text-white px-4" style={{ marginTop: 'calc(50vh - 8rem)' }}>
+          <div
+            className="relative z-20 flex flex-col items-center text-center text-white px-4"
+            style={{ marginTop: "calc(50vh - 4rem)" }}
+          >
             <h2 className="text-6xl md:text-7xl font-light mb-4 font-sans">
               About
             </h2>
@@ -129,6 +132,7 @@ const HomePage: React.FC = () => {
             </button>
           </div>
         </section>
+
         {/* Expanded About Section */}
         {expandedSection === "about" && (
           <section className="bg-white text-black p-8">
@@ -217,10 +221,12 @@ const HomePage: React.FC = () => {
           style={{ backgroundImage: 'url("/images/gallerypic.png")' }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 flex flex-col items-center text-center text-white px-4" style={{ marginTop: 'calc(50vh - 8rem)' }}>
+          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
             <h2 className="text-6xl md:text-7xl font-light mb-4 font-sans">
               Gallery
             </h2>
+          </div>
+          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
             <button
               className="mt-4 flex flex-col items-center space-y-2"
               onClick={() => toggleExpand("gallery")}
@@ -254,49 +260,65 @@ const HomePage: React.FC = () => {
           style={{ backgroundImage: 'url("/images/page3-1003-full.jpg")' }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 flex flex-col items-center text-center text-white px-4" style={{ marginTop: 'calc(50vh - 8rem)' }}>
+          <div
+            className="relative z-20 flex flex-col items-center text-center text-white px-4"
+            style={{ marginTop: "calc(50vh - 4rem)" }}
+          >
             <h2 className="text-6xl md:text-7xl font-light mb-4 font-sans">
               News
             </h2>
+          </div>
+          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
             <button
               className="mt-4 flex flex-col items-center space-y-2"
-              onClick={() => toggleExpand("about")}
+              onClick={() => toggleExpand("news")}
             >
-              <PlusCircle
-                className="text-white hover:text-pink-600 transition duration-300"
-                size={36}
-              />{" "}
-              {/* Adjusted size */}
+              {expandedSection === "news" ? (
+                <FaChevronUp
+                  className="text-white hover:text-pink-600 transition duration-300"
+                  size={36}
+                />
+              ) : (
+                <PlusCircle
+                  className="text-white hover:text-pink-600 transition duration-300"
+                  size={36}
+                />
+              )}
             </button>
           </div>
         </section>
 
-        {/* Expanded News Section */}
         {expandedSection === "news" && (
           <section className="bg-white text-black p-8">
-            <p className="text-xl font-light mb-4 font-lato">
-              News content goes here. You can add updates, announcements, or any
-              other relevant information.
-            </p>
+            <div className="container mx-auto">
+              <p className="text-xl font-light mb-4 font-lato">
+                Latest news and updates about Shawna van Omme.
+              </p>
+              {/* Add more content here as needed */}
+            </div>
           </section>
         )}
 
-        {/* Contact Section */}
         <section
           id="contact"
           className="relative min-h-screen bg-gray-800 bg-fixed bg-cover bg-top flex flex-col"
           style={{ backgroundImage: 'url("/images/svo1new.png")' }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 flex flex-col items-center text-center text-white px-4" style={{ marginTop: 'calc(50vh - 8rem)' }}>
+          <div
+            className="relative z-20 flex flex-col items-center text-center text-white px-4"
+            style={{ marginTop: "calc(50vh - 4rem)" }}
+          >
             <h2 className="text-6xl md:text-7xl font-light mb-4 font-sans">
               Contact
             </h2>
+          </div>
+          <div className="relative z-20 mt-auto flex flex-col items-center text-center text-white px-4 pb-16">
             <button
               className="mt-4 flex flex-col items-center space-y-2"
-              onClick={() => toggleExpand("gallery")}
+              onClick={() => toggleExpand("contact")}
             >
-              {expandedSection === "gallery" ? (
+              {expandedSection === "contact" ? (
                 <FaChevronUp
                   className="text-white hover:text-pink-600 transition duration-300"
                   size={36}
@@ -314,7 +336,7 @@ const HomePage: React.FC = () => {
         {/* Expanded Contact Section */}
         {expandedSection === "contact" && (
           <section className="bg-white text-black p-8">
-            <div className="flex flex-col md:flex-row">
+            <div className="container mx-auto">
               <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
                 <h3 className="text-2xl font-light mb-4 font-lato">
                   Professional
